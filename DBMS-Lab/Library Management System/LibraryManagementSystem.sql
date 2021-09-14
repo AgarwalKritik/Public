@@ -8,18 +8,16 @@
 ---- BOOK_LENDING (Book_id, Branch_id, Card_No, Date_Out, Due_Date)
 ---- LIBRARY_BRANCH (Branch_id, Branch_Name, Address)
 
----- Write SQL queries to
----- 1. Retrieve details of all books in the library – id, title, name of publisher, authors, number of copies in each branch, etc.
----- 2. Get the particulars of borrowers who have borrowed more than 3 books, but from Jan 2017 to Jun 2017
----- 3. Delete a book in BOOK table. Update the contents of other tables to reflect this data manipulation operation.
----- 4. Partition the BOOK table based on year of publication. Demonstrate its working with a simple query.
----- 5. Create a view of all books and its number of copies that are currently available in the Library.
 --------------------------------------------------------------------------------------------------------------------------------
 
 ------------------ START ----------------
 
+-- CREATE DATABASE (RUN ONLY ONCE)
+CREATE DATABASE [LibraryDB];
+GO
+
 --USING THE EXISTING DATABASE
-USE [KritikDB];
+USE [LibraryDB];
 GO
 
 --CREATING TABLES
@@ -112,7 +110,7 @@ INSERT INTO BOOK_AUTHORS VALUES (104, 'K.V.N. Sunitha');
 INSERT INTO BOOK_AUTHORS VALUES (105, 'NAVATHE');
 INSERT INTO BOOK_AUTHORS VALUES (106, 'NAVATHE');
 INSERT INTO BOOK_AUTHORS VALUES (107, 'MD FARHAN');
-INSERT INTO BOOK_AUTHORS VALUES (108, 'GALVIN');
+INSERT INTO BOOK_AUTHORS VALUES (108, 'KRITIK');
 GO
 
 SELECT * FROM BOOK_AUTHORS;
@@ -158,29 +156,57 @@ GO
 SELECT * FROM BOOK_LENDING;
 GO
 
---QUERIES
---Q1
+-- QUERIES
+
+-- Q1 Retrieve details of all books in the library – id, title, name of publisher, authors, number of copies in each branch, etc.
 SELECT B.BOOK_ID, B.TITLE, B.PUBLISHER_NAME, A.AUTHOR_NAME,C.NO_OF_COPIES,L.BRANCH_ID 
 FROM BOOK B, BOOK_AUTHORS A, BOOK_COPIES C, LIBRARY_BRANCH L 
 WHERE B.BOOK_ID=A. BOOK_ID AND B.BOOK_ID=C.BOOK_ID AND L.BRANCH_ID=C.BRANCH_ID;
 GO
 
---Q2
+-- Q2 Get the particulars of borrowers who have borrowed more than 3 books, but from Jan 2017 to Jun 2017
 SELECT CARD_NO 
 FROM BOOK_LENDING 
 WHERE DATE_OUT BETWEEN '2017-01-01' AND '2017-06-30' 
 GROUP BY CARD_NO HAVING COUNT(*)>3;
 GO
 
---Q3
+-- Q3 Delete a book in BOOK table. Update the contents of other tables to reflect this data manipulation operation.
 DELETE FROM BOOK WHERE BOOK_ID = 107;
+SELECT * FROM BOOK;
 GO
 
---Q4
- SELECT *,ROW_NUMBER() OVER (PARTITION BY PUB_YEAR ORDER BY BOOK_ID) AS NO_OF_BOOKS FROM BOOK;
- GO
+-- Q4 Partition the BOOK table based on year of publication. Demonstrate its working with a simple query.
 
---Q5
+----PARTITION FUNCTION
+CREATE PARTITION FUNCTION PF_PUB_YEAR (VARCHAR(10)) AS RANGE RIGHT FOR VALUES (2021);
+
+----PARTITION SCHEME
+CREATE PARTITION SCHEME PS_PUB_YEAR AS PARTITION PF_PUB_YEAR ALL TO ([PRIMARY]);
+
+----PARTITION TABLE
+CREATE TABLE [BOOK_PART] (
+  [BOOK_ID] INT REFERENCES BOOK([BOOK_ID]),
+  [TITLE] VARCHAR(100) NOT NULL,
+  [PUBLISHER_NAME] VARCHAR(50) REFERENCES PUBLISHER([NAME]),
+  [PUB_YEAR] VARCHAR(10) NOT NULL,
+) ON PS_PUB_YEAR(PUB_YEAR);
+GO
+
+INSERT INTO BOOK_PART VALUES (101, 'JAVA: THE COMPLETE REFERENCE', 'MCGRAW-HILL', 2016);
+INSERT INTO BOOK_PART VALUES (102,'DATA VISUALIZATION: A PRACTICAL INTRODUCTION', 'PRINCETON UNIVERSITY PRESS', 2016);
+INSERT INTO BOOK_PART VALUES (103, 'MICROPROCESSOR ARCHITECTURE, PROGRAMMING & APPLICATIONS WITH THE 8085', 'PRENTICE HALL', 2002);
+INSERT INTO BOOK_PART VALUES (104, 'FORMAL LANGUAGES & AUTOMATA THEORY', 'PEARSON', 2016);
+INSERT INTO BOOK_PART VALUES (105, 'DATABASE MANAGEMENT SYSTEM', 'RANDOM HOUSE', 2014);
+INSERT INTO BOOK_PART VALUES (106, 'ADVANCED DATABASE MANAGEMENT SYSTEM', 'MCGRAW-HILL', 2016);
+INSERT INTO BOOK_PART VALUES (107, 'CYBERSECURITY', 'PLANETA', 2015);
+INSERT INTO BOOK_PART VALUES (108, 'OPERATING SYSTEM: A PRACTICAL APPROACH', 'PEARSON', 2015);
+GO
+
+SELECT PUB_YEAR, $PARTITION.PF_PUB_YEAR(PUB_YEAR) AS PARTITION_NUMBER FROM BOOK_PART GROUP BY PUB_YEAR;
+GO
+
+-- Q5 Create a view of all books and its number of copies that are currently available in the Library.
 CREATE VIEW VIEW_BOOKS AS SELECT B.BOOK_ID, B.TITLE, C.NO_OF_COPIES 
 FROM BOOK B, BOOK_COPIES C, LIBRARY_BRANCH L 
 WHERE B.BOOK_ID=C.BOOK_ID AND C.BRANCH_ID=L.BRANCH_ID;
@@ -189,4 +215,4 @@ GO
 SELECT * FROM VIEW_BOOKS;
 GO
 
---END
+--------------END----------------
