@@ -1,6 +1,6 @@
-# Copyright (C) 2021 Kritik Agarwal <https://github.com/Kritik007>
+// Copyright (C) 2021 Kritik Agarwal <https://github.com/Kritik007>
 
-# Write a program for Hamming code/CRC.
+// Write a program for Hamming code/CRC.
 
 #include <bits/stdc++.h>
 
