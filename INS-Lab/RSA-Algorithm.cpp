@@ -99,7 +99,7 @@ int main()
     cout << "\n>> Two prime numbers (p and q) are: " << p << " and " << q << endl;
 
     // Display the generated public and private keys
-    cout << ">> Public Key (n, e): (" << n << ", " << e << ")\n";
+    cout << "\n>> Public Key (n, e): (" << n << ", " << e << ")\n";
     cout << ">> Private key (n, d): (" << n << ", " << d << ")\n";
 
     // Encrypt the message through loop
@@ -107,7 +107,7 @@ int main()
         cipher[i] = enCrypt(text[i], n, e);
 
     // Display the encrypted message
-    cout << ">> Encrypted message: ";
+    cout << "\n>> Encrypted message: ";
     for (i = 0; i < len; i++)
         cout << cipher[i];
 
