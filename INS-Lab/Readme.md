@@ -1,10 +1,10 @@
 #### Information and Network Security Lab Codes
 
-[![made-with-c++](https://forthebadge.com/images/badges/made-with-c-plus-plus.svg)](https://www.cplusplus.com/)
-
 ---
 
 ##### Implement the following
+
+[![made-with-c++](https://forthebadge.com/images/badges/made-with-c-plus-plus.svg)](https://www.cplusplus.com/)
 
 ###### 1. [Caesar Cipher](https://github.com/Kritik007/CODES/blob/main/INS-Lab/Caesar-Cipher.cpp)
 
@@ -18,7 +18,6 @@
 
 ###### 6. [RSA-Algorithm](https://github.com/Kritik007/CODES/blob/main/INS-Lab/RSA-Algorithm.cpp)
 
-###### 7. [Diffiee-Hellman](https://github.com/Kritik007/CODES/blob/main/INS-Lab/)
+###### 7. [Diffiee-Hellman](https://github.com/Kritik007/CODES/blob/main/INS-Lab/Diffiee-Hellman.cpp)
 
 ###### 8. [The Signature Scheme - Digital Signature Standard](https://github.com/Kritik007/CODES/blob/main/INS-Lab/)
-
