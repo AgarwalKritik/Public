@@ -18,7 +18,7 @@ ____
 
 ###### 6. [RSA-Algorithm](https://github.com/Kritik007/CODES/blob/main/INS-Lab/RSA-Algorithm.cpp)
 
-###### 7. [Diffiee-Hellman](https://github.com/Kritik007/CODES/blob/main/INS-Lab/Diffiee-Hellman.cpp)
+###### 7. [Diffiee-Hellman Key Exchange](https://github.com/Kritik007/CODES/blob/main/INS-Lab/Diffiee-Hellman.cpp)
 _____
 
 ###### [![made-with-java](https://forthebadge.com/images/badges/made-with-java.svg)](https://www.java.com/)
