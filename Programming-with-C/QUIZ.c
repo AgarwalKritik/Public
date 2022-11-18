@@ -1,3 +1,7 @@
+// Author: [Kritik Agarwal](https://github.com/Kritik007)
+// Won Best Project in C Programming Certificate
+
+
 #include<time.h>
 #include<stdio.h>
 #include<stdlib.h>
