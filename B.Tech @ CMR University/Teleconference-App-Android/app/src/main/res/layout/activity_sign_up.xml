@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bglogin">
+
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="30dp"
+        tools:context=".LoginActivity">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/oleo_script_swash_caps_bold"
+            android:text="Teleconference"
+            android:textColor="@color/teal_700"
+            android:textSize="40sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/allura"
+            android:text="Bringing People Together"
+            android:textColor="#002C28"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/akaya_telivigala"
+            android:gravity="center"
+            android:text="Create New Account"
+            android:textColor="#3F51B5"
+            android:textSize="38sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/namebox"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/textboxstyle"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:paddingLeft="25dp"
+            android:textColor="#000000"
+            android:textColorHint="#878787" />
+
+
+        <EditText
+            android:id="@+id/emailbox"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/textboxstyle"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="25dp"
+            android:textColor="#000000"
+            android:textColorHint="#878787" />
+
+        <EditText
+            android:id="@+id/passbox"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/textboxstyle"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:paddingLeft="25dp"
+            android:textColor="#000000"
+            android:textColorHint="#878787" />
+
+        <Button
+            android:id="@+id/createbtn"
+            android:layout_width="250dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/loginbuttonstyle"
+            android:text="CREATE ACCOUNT"
+            android:textColor="@color/purple_700" />
+
+        <Button
+            android:id="@+id/loginbtn"
+            android:layout_width="250dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/signupbuttonstyle"
+            android:text="Already have an account?" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/alata"
+            android:gravity="center"
+            android:text="Made by Kritik Agarwal &amp; Kruthika P"
+            android:textColor="#ADADAE" />
+
+    </LinearLayout>
+
+</ScrollView>

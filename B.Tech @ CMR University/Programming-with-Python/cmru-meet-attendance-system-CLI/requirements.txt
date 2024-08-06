@@ -1,0 +1,5 @@
+plyer
+selenium
+openpyxl
+configparser
+stdiomask

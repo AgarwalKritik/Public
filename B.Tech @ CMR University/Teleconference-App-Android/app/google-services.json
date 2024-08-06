@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "414139934375",
+    "project_id": "teleconference-9464f",
+    "storage_bucket": "teleconference-9464f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:414139934375:android:f8d6f90ee3adf1e3899d82",
+        "android_client_info": {
+          "package_name": "com.kritik.teleconference"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "414139934375-pbaglf2obiuphfma1orf7a7u49tv96jr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kritik.teleconference",
+            "certificate_hash": "419da275613f2229873b9b3e845b92cad6a86147"
+          }
+        },
+        {
+          "client_id": "414139934375-cf46latk4un9sjgr8bva9q0i9ghj2196.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC52M3lnl-O1VYOV3AG_sa8lgwAKFoMshk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "414139934375-cf46latk4un9sjgr8bva9q0i9ghj2196.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
