@@ -1,0 +1,240 @@
+<!-- 
+  Author: KRITIK AGARWAL (https://github.com/Kritik007) 
+  Copyright (c) 2022 Kritik Agarwal (https://github.com/Kritik007/Airline-Fare-Prediction/blob/8ce82e4fec395c4acfc942d18471b7fe89b6bf8d/LICENSE#L3)
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>ML FINAL PROJECT - KRITIK & KALPANA</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/Kritik007/Airline-Fare-Prediction/main/templates/CMR.png"
+    type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--Styling Links-->
+  <style>
+    a:link {
+      color: rgb(210, 255, 210);
+      background-color: transparent;
+      text-decoration: none;
+    }
+
+    a:visited {
+      color: rgb(255, 235, 235);
+      background-color: transparent;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: rgb(80, 255, 92);
+      background-color: transparent;
+      text-decoration: underline;
+    }
+
+    a:active {
+      color: yellow;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+
+    .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      height: fit-content;
+      width: 100%;
+      color: rgb(255, 255, 255);
+      text-align: center;
+    }
+  </style>
+  <!--JavaScript Code to Disable Past Date & Time from datetime-local-->
+  <script type="text/javascript">
+    window.onload = function () {
+      var today = new Date().toISOString().slice(0, 16);
+      document.getElementsByName("Departure Date & Time")[0].min = today;
+    }
+  </script>
+</head>
+
+<body
+  style="background-color:#e4e5e6; background-image: url('https://raw.githubusercontent.com/Kritik007/Flight-Fare-Prediction/main/templates/aviation.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; background-position: center;">
+  <div class="login">
+    <center>
+      <!-- COLLEGE LOGO -->
+      <a href="https://cmr.edu.in"><img
+          src="https://raw.githubusercontent.com/Kritik007/Flight-Fare-Prediction/main/templates/SOET.png"
+          style="width:240px;height:150x;"></a>
+      <h3>Machine Learning Final Project - Academic Year 2022-23</h3>
+      <h2 style="background-color:lightgreen">Airline Fare Prediction using Regression</h2>
+
+      <!-- Main Input For Receiving Query to our ML -->
+      <table>
+        <form action="{{ url_for('predict_api')}}" method="post">
+
+          <tr>
+            <td>
+              <label style="font-weight: bold;">
+                Departure Date & Time:
+              </label>
+            </td>
+            <td>
+              <!-- Input Departure Date & Time -->
+              <input type="datetime-local" name="Departure Date & Time" placeholder="Departure Date & Time"
+                required="required" /><br>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label style="font-weight: bold;">
+                Arrival Time:
+              </label>
+            </td>
+            <td>
+              <!-- Input Arrival Time -->
+              <input type="time" name="Arrival Time" placeholder="Arrival Time" required="required" /><br>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label style="font-weight: bold;">
+                Airline:
+              </label>
+            </td>
+            <td>
+              <!-- Select Choice of Airline -->
+              <select id="Airline" name="Airline" placeholder="Airline">
+                <option value="Air India">Air India</option>
+                <option value="IndiGo">IndiGo</option>
+                <option value="SpiceJet">SpiceJet</option>
+                <option value="Vistara">Vistara</option>
+                <option value="Air Asia">Air Asia</option>
+                <option value="GoAir">GoAir</option>
+                <option value="Multiple carriers Premium economy">Multiple carriers Premium economy</option>
+                <option value="Jet Airways">Jet Airways</option>
+                <option value="Vistara Premium economy">Vistara Premium economy</option>
+                <option value="Trujet">Trujet</option>
+              </select> <br>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label style="font-weight: bold;">
+                Source:
+              </label>
+            </td>
+            <td>
+              <!-- Select Source from where the flight will take off -->
+              <select id="Source" name="Source" placeholder="Source">
+                <option value="Banglore">Banglore</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Cochin">Cochin</option>
+                <option value="Hyderabad">Hyderabad</option>
+              </select> <br>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label style="font-weight: bold;">
+                Destination:
+              </label>
+            </td>
+            <td>
+              <!-- Select Destination to where the flight will arrive -->
+              <select id="Destination" name="Destination" placeholder="Destination">
+                <option value="Banglore">Banglore</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Cochin">Cochin</option>
+                <option value="Hyderabad">Hyderabad</option>
+              </select> <br>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label style="font-weight: bold;">
+                Total_Stops:
+              </label>
+            </td>
+            <td>
+              <!-- Select Number of Stops -->
+              <select id="Total_Stops" name="Total_Stops" placeholder="Total_Stops">
+                <option value="non-stop">non-stop</option>
+                <option value="1 stop">1 stop</option>
+                <option value="2 stops">2 stops</option>
+                <option value="3 stops">3 stops</option>
+                <option value="4 stops">4 stops</option>
+              </select> <br>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label style="font-weight: bold;">
+                Additional_Info:
+              </label>
+            </td>
+            <td>
+              <!-- Select Any Additional Informations -->
+              <select id="Additional_Info" name="Additional_Info" placeholder="Additional_Info">
+                <option value="No info">No info</option>
+                <option value="Business class">Business class</option>
+                <option value="In-flight meal not included">In-flight meal not included</option>
+                <option value="No check-in baggage included">No check-in baggage included</option>
+                <option value="1 Long layover">1 Long layover</option>
+                <option value="2 Long layover">2 Long layover</option>
+                <option value="1 Short layover">1 Short layover</option>
+                <option value="Change airports">Change airports</option>
+                <option value="Red-eye flight">Red-eye flight</option>
+              </select> <br>
+            </td>
+          </tr>
+
+      </table>
+
+      <br><br>
+      <!-- Predict Button to find out the price -->
+      <button style="font-weight: bold;" type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </center>
+    </form>
+
+    <br>
+    <br>
+
+  </div>
+  <center>
+    <!-- Print output after fetching from app.py -->
+    <h3 style="background-color:#0080cb; color: aliceblue;"> {{ output_text }} </h3>
+  </center>
+  <br>
+  <br>
+
+  <div class="footer">
+    <!-- Credits/Footer -->
+    <h5 style="background-color:#0080cb;">Developed By - <a href="https://kritik.go.studio/" target="_blank">KRITIK
+        AGARWAL
+        (19BBTCS067)</a> & <a href="https://www.linkedin.com/in/kalpanasahu" target="_blank">KALPANA SAHU
+        (19BBTCS064)</a> </h5>
+    <h5 style="background-color:#0080cb;">
+      &copy; 2022 <a href="https://github.com/Kritik007/Airline-Fare-Prediction" target="_blank">KRITIK AGARWAL</a>
+    </h5>
+  </div>
+  <br>
+  <br>
+</body>
+
+</html>
