@@ -1,10 +1,10 @@
 <p align="center">
-  <a href="https://github.com/AgarwalKritik/CS5060-Advanced-Computer-Networks/tree/main/Socket%20Programming"></a>
+  <a href="https://github.com/AgarwalKritik/Public/tree/main/M.Tech%20%40%20IIT-Hyderabad/CS5060-Advanced%20Computer%20Networks/Socket%20Programming"></a>
   <h3 align="center">Socket Programming</h3>
   <p align="center">Programming Assignment (Socket Programming) Completed for the course CS5060-ACN.
     <br/>
     <br/>
-    <a href="https://github.com/AgarwalKritik/CS5060-Advanced-Computer-Networks/tree/main/Socket%20Programming"><strong>Explore the codes »</strong></a>
+    <a href="https://github.com/AgarwalKritik/Public/tree/main/M.Tech%20%40%20IIT-Hyderabad/CS5060-Advanced%20Computer%20Networks/Socket%20Programming"><strong>Explore the codes »</strong></a>
     <br/>
     <br/>
   </p>
@@ -129,7 +129,7 @@ You may want to modify the client/server codes as per needs. Say modify the inte
 
 ## License
 
-Created under the MIT License. See [LICENSE](https://github.com/Kritik007//CS5060-Advanced-Computer-Networks/blob/main/LICENSE) for more information.
+Created under the MIT License. See [LICENSE](https://github.com/Kritik007/public/blob/main/LICENSE) for more information.
 
 ## Authors
 
