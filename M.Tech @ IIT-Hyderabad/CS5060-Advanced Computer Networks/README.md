@@ -5,7 +5,7 @@ Assignments Completed for the course ACN - CS5060 for the requirement of Masters
 
 ## License
 
-Created under the MIT License. See [LICENSE](https://github.com/AgarwalKritik/public/blob/main/LICENSE) for more information.
+Created under the GNU General Public License. See [LICENSE](https://github.com/AgarwalKritik/public/blob/main/LICENSE) for more information.
 
 ## Authors
 
