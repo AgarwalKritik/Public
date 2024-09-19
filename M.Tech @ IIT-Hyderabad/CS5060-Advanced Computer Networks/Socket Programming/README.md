@@ -129,7 +129,7 @@ You may want to modify the client/server codes as per needs. Say modify the inte
 
 ## License
 
-Created under the MIT License. See [LICENSE](https://github.com/Kritik007/public/blob/main/LICENSE) for more information.
+Created under the MIT License. See [LICENSE](https://github.com/AgarwalKritik/Public/blob/main/LICENSE) for more information.
 
 ## Authors
 
