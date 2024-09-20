@@ -9,6 +9,8 @@
 <li>Secured second place in a class-wide competition, demonstrating expertise in network security and problem-solving under pressure.</li>
 </ul>
 
+![](https://raw.githubusercontent.com/AgarwalKritik/Public/main/M.Tech%20%40%20IIT-Hyderabad/CS6903-Network%20Security/CTF%20Assignment/CTF.jpg)
+
 ---------
 
 Team Members:
